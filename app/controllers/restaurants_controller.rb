@@ -1,16 +1,14 @@
 class RestaurantsController < ApplicationController
-  CATEGORIES = ['chinese', 'italian', 'japanese', 'french', 'belgian']
-  def destroy
-    @restaurant = Restaurant.find(params['id'])
-  end
-
   def index
     @restaurants = Restaurant.all
   end
 
+  def destroy
+  end
+
   def create
-    @restaurant = Restaurant.new(params_r).save
-    redirect_to
+    Restaurant.create(params_res)
+    redirect_to restaurants_path
   end
 
   def new
@@ -18,10 +16,10 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params['id'])
+    @restaurant = Restaurant.find(params[:id])
   end
 
-  def params_r
+  def params_res
     params.require(:restaurant).permit(:name, :address, :category)
   end
 end

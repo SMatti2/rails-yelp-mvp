@@ -1,5 +1,10 @@
-<h1>Restaurants#index</h1>
-<% @restaurants.each do |el|%>
-  <div><%= el.name %></div>
+<h1>Yelp</h1>
+
+
+<% @restaurants.each do |thing| %>
+<div>
+  <%=  link_to thing.name, restaurant_path(thing)  %>
+</div>
 <% end %>
 
+<%=  link_to 'New restaurant', new_restaurant_path %>

@@ -1,4 +1,4 @@
-class AddRestaurantIdToReviews < ActiveRecord::Migration[5.2]
+class Review < ActiveRecord::Migration[5.2]
   def change
     add_reference :reviews, :restaurant, index: true
   end
